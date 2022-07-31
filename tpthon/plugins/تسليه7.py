@@ -1,18 +1,14 @@
-# hack code for ZED - THON 
+# hack code for ZED - THON
 
 import asyncio
-import os
-import random
-from urllib.parse import quote_plus
-from collections import deque
-from tpthon.core.logger import logging
+
 from tpthon import tipthon
-from ..Config import Config
-from ..core.managers import edit_delete, edit_or_reply
+
+from ..core.managers import edit_or_reply
 
 plugin_category = "الترفيه"
 
-from . import ALIVE_NAME, deEmojify
+from . import ALIVE_NAME
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "zed"
 
@@ -29,7 +25,12 @@ async def _(event):
         reply_message = await event.get_reply_message()
         await event.client(GetFullUserRequest(reply_message.sender_id))
         idd = reply_message.sender_id
-        if idd == 925972505 or idd == 1895219306 or idd == 2028523456 or idd == 1346542270:
+        if (
+            idd == 925972505
+            or idd == 1895219306
+            or idd == 2028523456
+            or idd == 1346542270
+        ):
             await edit_or_reply(
                 event, "**⌔: دي انـه مطور السورس **\n**⪼ لا استطيع تهكير مطوري**"
             )
@@ -112,10 +113,7 @@ async def _(event):
 
 
 Fun7_cmd = (
-
-"**الاوامــر : **\n"
-"  •  `.تهكير`\n"
-"**للنســخ : ** __اضغط ع الامـر لنسخـه__"
+    "**الاوامــر : **\n" "  •  `.تهكير`\n" "**للنســخ : ** __اضغط ع الامـر لنسخـه__"
 )
 
 # Copyright (C) 2022 Zedthon . All Rights Reserved

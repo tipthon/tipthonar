@@ -6,7 +6,7 @@
 import bs4
 import requests
 
-from . import ALIVE_NAME, tipthon, edit_or_reply
+from . import ALIVE_NAME, edit_or_reply, tipthon
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "tipthon"
 
@@ -84,7 +84,9 @@ async def apk(event):
         app_details += f"\n\n    𓍹 {Name} 𓍻"
         await event.edit(app_details, link_preview=True, parse_mode="HTML")
     except IndexError:
-        await event.edit("** لم يتم العثور على نتائج البحث يرجى وضع اسم تطبيق متوفر ❕**")
+        await event.edit(
+            "** لم يتم العثور على نتائج البحث يرجى وضع اسم تطبيق متوفر ❕**"
+        )
     except Exception as err:
         await event.edit("Exception Occured:- " + str(err))
 
@@ -160,7 +162,9 @@ async def apkr(event):
         app_details += "\n\n===> 𝗧𝗶𝗽𝘁𝗵𝗼𝗻 𝗮𝗟 𝗔𝗿𝗮𝗯 - @E9N99 ® <==="
         await event.edit(app_details, link_preview=True, parse_mode="HTML")
     except IndexError:
-        await event.edit("**عـذراً .. لا يـوجد نتائـج اكتـب الاسـم الصحيـح للتطبيـق وعـاود البحث مـرة اخـرى**")
+        await event.edit(
+            "**عـذراً .. لا يـوجد نتائـج اكتـب الاسـم الصحيـح للتطبيـق وعـاود البحث مـرة اخـرى**"
+        )
     except Exception as err:
         await event.edit("Exception Occured:- " + str(err))
 

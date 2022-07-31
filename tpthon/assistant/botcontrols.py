@@ -142,7 +142,9 @@ async def ban_botpms(event):
         )
     if not reason:
         return await event.client.send_message(
-            event.chat_id, "**- لحظـر الشخـص اولا عليـك بذكـر السبب مـع الامـر**", reply_to=reply_to
+            event.chat_id,
+            "**- لحظـر الشخـص اولا عليـك بذكـر السبب مـع الامـر**",
+            reply_to=reply_to,
         )
     try:
         user = await event.client.get_entity(user_id)

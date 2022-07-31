@@ -1,4 +1,3 @@
-
 import asyncio
 import base64
 import os
@@ -15,7 +14,6 @@ from telethon.tl.functions.messages import SendMediaRequest
 from tpthon import tipthon
 
 from ..Config import Config
-from ..core.logger import logging
 from ..core.managers import edit_delete, edit_or_reply
 from . import make_gif, progress
 
@@ -232,12 +230,16 @@ async def _(event):
         return
     input_str = event.pattern_match.group(1)
     if input_str is None:
-        await edit_or_reply(event, "اعد الامر بالرد على الفيديو `.حول بصمه` او`.حول صوت`")
+        await edit_or_reply(
+            event, "اعد الامر بالرد على الفيديو `.حول بصمه` او`.حول صوت`"
+        )
         return
     if input_str in ["صوت", "بصمه"]:
         event = await edit_or_reply(event, "**جاري التحويل...**")
     else:
-        await edit_or_reply(event, "اعد الامر بالرد على الفيديو `.حول بصمه` او`.حول صوت`")
+        await edit_or_reply(
+            event, "اعد الامر بالرد على الفيديو `.حول بصمه` او`.حول صوت`"
+        )
         return
     try:
         start = datetime.now()
@@ -327,8 +329,9 @@ async def _(event):
             )
             os.remove(new_required_file_name)
             await event.delete()
-            
-#ZedThon 
+
+
+# ZedThon
 @tipthon.ar_cmd(pattern="متحركه ?(.*)")
 async def gifs(ult):
     get = ult.pattern_match.group(1)
@@ -353,5 +356,3 @@ async def gifs(ult):
                 ult.chat.id, reply_to=ult.reply_to_msg_id, silent=True, hide_via=True
             )
     await m.delete()
-
-

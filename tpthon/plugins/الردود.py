@@ -51,6 +51,7 @@ TipthonWF_cmd = (
 async def cmd(zelzallll):
     await edit_or_reply(zelzallll, TipthonWF_cmd)
 
+
 @tipthon.ar_cmd(pattern="الترحيب")
 async def cmd(zelzallll):
     await edit_or_reply(zelzallll, TipthonWF_cmd)
@@ -235,6 +236,9 @@ async def on_all_snip_delete(event):
     filters = get_filters(event.chat_id)
     if filters:
         remove_all_filters(event.chat_id)
-        await edit_or_reply(event, "𓆩 𝗧𝗶𝗽𝘁𝗵𝗼𝗻 𝗮𝗟 𝗔𝗿𝗮𝗯 𓆪\n 𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n**⪼ تم حذف جـميع الــردود المضـافـهہ بنجـاح☑️**")
+        await edit_or_reply(
+            event,
+            "𓆩 𝗧𝗶𝗽𝘁𝗵𝗼𝗻 𝗮𝗟 𝗔𝗿𝗮𝗯 𓆪\n 𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n**⪼ تم حذف جـميع الــردود المضـافـهہ بنجـاح☑️**",
+        )
     else:
         await edit_or_reply(event, "**❈╎عـذراً .. لا توجـد ردود في هـذه المجموعـه**")

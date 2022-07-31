@@ -57,8 +57,15 @@ async def zedgban(event):  # sourcery no-metrics
         return
     if user.id == tipthon.uid:
         return await edit_delete(zede, "**⪼ عـذراً ..لا استطيـع حظـࢪ نفسـي 𓆰**")
-    if user.id == 925972505 or user.id == 1895219306 or user.id == 2095357462 or user.id == 1488114134:
-        return await edit_delete(zede, "**⪼ عـذراً ..لا استطيـع حظـࢪ مطـور السـورس عـام 𓆰**")
+    if (
+        user.id == 925972505
+        or user.id == 1895219306
+        or user.id == 2095357462
+        or user.id == 1488114134
+    ):
+        return await edit_delete(
+            zede, "**⪼ عـذراً ..لا استطيـع حظـࢪ مطـور السـورس عـام 𓆰**"
+        )
     if gban_sql.is_gbanned(user.id):
         await zede.edit(
             f"**⪼ المسـتخـدم ↠** [{user.first_name}](tg://user?id={user.id}) **𓆰**\n\n**⪼ مـوجــود بالفعــل فـي ↠ قائمـة المحظــورين عــام**"
@@ -69,7 +76,10 @@ async def zedgban(event):  # sourcery no-metrics
     count = 0
     sandy = len(san)
     if sandy == 0:
-        return await edit_delete(zede, "**⪼ عــذراً .. يجـب ان تكــون مشـرفـاً فـي مجموعـة واحـده ع الأقــل 𓆰**")
+        return await edit_delete(
+            zede,
+            "**⪼ عــذراً .. يجـب ان تكــون مشـرفـاً فـي مجموعـة واحـده ع الأقــل 𓆰**",
+        )
     await zede.edit(
         f"**⪼ جـاري بـدء حظـر ↠** [{user.first_name}](tg://user?id={user.id}) **𓆰**\n\n**⪼ مـن ↠ {len(san)} كــروب**"
     )
@@ -149,7 +159,10 @@ async def zedgban(event):
     count = 0
     sandy = len(san)
     if sandy == 0:
-        return await edit_delete(zede, "**⪼ عــذراً .. يجـب ان تكــون مشـرفـاً فـي مجموعـة واحـده ع الأقــل 𓆰**")
+        return await edit_delete(
+            zede,
+            "**⪼ عــذراً .. يجـب ان تكــون مشـرفـاً فـي مجموعـة واحـده ع الأقــل 𓆰**",
+        )
     await zede.edit(
         f"**⪼ جـاري الغــاء حظـر ↠** [{user.first_name}](tg://user?id={user.id}) **𓆰**\n\n**⪼ مـن ↠ {len(san)} كــروب**"
     )
@@ -214,9 +227,7 @@ async def gablist(event):
             if a_user.reason:
                 GBANNED_LIST += f"**- ❝ ⌊المستخـدم :**  [{a_user.chat_id}](tg://user?id={a_user.chat_id}) \n**- ❝ ⌊سـبب الحظـر : {a_user.reason} 𓆰** \n\n"
             else:
-                GBANNED_LIST += (
-                    f"**- ❝ ⌊المستخـدم :**  [{a_user.chat_id}](tg://user?id={a_user.chat_id}) \n**- ❝ ⌊سـبب الحظـر : لا يـوجـد 𓆰** \n\n"
-                )
+                GBANNED_LIST += f"**- ❝ ⌊المستخـدم :**  [{a_user.chat_id}](tg://user?id={a_user.chat_id}) \n**- ❝ ⌊سـبب الحظـر : لا يـوجـد 𓆰** \n\n"
     else:
         GBANNED_LIST = "**- لايــوجـد محظــورين عــام بعــد**"
     await edit_or_reply(event, GBANNED_LIST)
@@ -242,14 +253,25 @@ async def startgmute(event):
         if not user:
             return
         if user.id == tipthon.uid:
-            return await edit_or_reply(event, "**- عــذࢪاً .. لايمكــنك كتــم نفســك ؟!**")
-        if user.id == 925972505 or user.id == 1895219306 or user.id == 2095357462 or user.id == 1488114134:
-            return await edit_or_reply(event, "**- عــذࢪاً .. لايمكــنك كتــم مطـور السـورس عــام ؟!**")
+            return await edit_or_reply(
+                event, "**- عــذࢪاً .. لايمكــنك كتــم نفســك ؟!**"
+            )
+        if (
+            user.id == 925972505
+            or user.id == 1895219306
+            or user.id == 2095357462
+            or user.id == 1488114134
+        ):
+            return await edit_or_reply(
+                event, "**- عــذࢪاً .. لايمكــنك كتــم مطـور السـورس عــام ؟!**"
+            )
         userid = user.id
     try:
         user = await event.client.get_entity(userid)
     except Exception:
-        return await edit_or_reply(event, "**- عــذࢪاً .. لايمكــنني العثــوࢪ علـى المسـتخــدم ؟!**")
+        return await edit_or_reply(
+            event, "**- عــذࢪاً .. لايمكــنني العثــوࢪ علـى المسـتخــدم ؟!**"
+        )
     if is_muted(userid, "gmute"):
         return await edit_or_reply(
             event,
@@ -309,15 +331,20 @@ async def endgmute(event):
         if not user:
             return
         if user.id == tipthon.uid:
-            return await edit_or_reply(event, "**- عــذࢪاً .. انت غيـر مكتـوم يامطــي ؟!**")
+            return await edit_or_reply(
+                event, "**- عــذࢪاً .. انت غيـر مكتـوم يامطــي ؟!**"
+            )
         userid = user.id
     try:
         user = await event.client.get_entity(userid)
     except Exception:
-        return await edit_or_reply(event, "**- عــذࢪاً .. لايمكــنني العثــوࢪ علـى المسـتخــدم ؟!**")
+        return await edit_or_reply(
+            event, "**- عــذࢪاً .. لايمكــنني العثــوࢪ علـى المسـتخــدم ؟!**"
+        )
     if not is_muted(userid, "gmute"):
         return await edit_or_reply(
-            event, f"**╮ ❐- الشخـص :** {_format.mentionuser(user.first_name ,user.id)} **...❏╰**\n\n**╮ ❐- غيـر مكتـوم عــام ✓ ...❏╰**"
+            event,
+            f"**╮ ❐- الشخـص :** {_format.mentionuser(user.first_name ,user.id)} **...❏╰**\n\n**╮ ❐- غيـر مكتـوم عــام ✓ ...❏╰**",
         )
     try:
         unmute(userid, "gmute")
@@ -372,14 +399,26 @@ async def zedgkick(event):  # sourcery no-metrics
     if not user:
         return
     if user.id == tipthon.uid:
-        return await edit_delete(zede, "**╮ ❐ ... عــذراً لا استطــيع طــرد نفســي ... ❏╰**")
-    if user.id == 925972505 or user.id == 1895219306 or user.id == 2095357462 or user.id == 1488114134:
-        return await edit_delete(zede, "**╮ ❐ ... عــذࢪاً .. لا استطــيع طــرد مطـور السـورس ... ❏╰**")
+        return await edit_delete(
+            zede, "**╮ ❐ ... عــذراً لا استطــيع طــرد نفســي ... ❏╰**"
+        )
+    if (
+        user.id == 925972505
+        or user.id == 1895219306
+        or user.id == 2095357462
+        or user.id == 1488114134
+    ):
+        return await edit_delete(
+            zede, "**╮ ❐ ... عــذࢪاً .. لا استطــيع طــرد مطـور السـورس ... ❏╰**"
+        )
     san = await admin_groups(event.client)
     count = 0
     sandy = len(san)
     if sandy == 0:
-        return await edit_delete(zede, "**⪼ عــذراً .. يجـب ان تكــون مشـرفـاً فـي مجموعـة واحـده ع الأقــل 𓆰**")
+        return await edit_delete(
+            zede,
+            "**⪼ عــذراً .. يجـب ان تكــون مشـرفـاً فـي مجموعـة واحـده ع الأقــل 𓆰**",
+        )
     await zede.edit(
         f"**⪼ بـدء طـرد ↠** [{user.first_name}](tg://user?id={user.id}) **𓆰**\n\n**⪼ فـي ↠ {len(san)} كــروب**"
     )

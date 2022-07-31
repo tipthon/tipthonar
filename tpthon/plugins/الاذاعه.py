@@ -1,21 +1,17 @@
-from telethon import events
-
 from tpthon import tipthon
 
 from ..core.managers import edit_or_reply
-from . import BOTLOG, BOTLOG_CHATID
 
 plugin_category = "البوت"
-from . import * 
 
 ZED_BLACKLIST = [
     -1001236815136,
     -1001614012587,
-    ]
+]
 
 ZED_BBLACKLIST = [
     777000,
-    ]
+]
 #
 
 TipthonPRO_cmd = (
@@ -33,7 +29,6 @@ TipthonPRO_cmd = (
 )
 
 
-
 @tipthon.ar_cmd(pattern="الاذاعه")
 async def cmd(zelzallll):
     await edit_or_reply(zelzallll, TipthonPRO_cmd)
@@ -47,9 +42,13 @@ async def gcast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await edit_or_reply(event, "**✾╎بالـرد ؏ــلى رسـالة او وسائـط او كتابـة رسـالة مع الامـࢪ**")
+        await edit_or_reply(
+            event, "**✾╎بالـرد ؏ــلى رسـالة او وسائـط او كتابـة رسـالة مع الامـࢪ**"
+        )
         return
-    roz = await edit_or_reply(event, "**✾╎ جـاري الاذاعـه في المجموعـات ...الرجـاء الانتظـار**")
+    roz = await edit_or_reply(
+        event, "**✾╎ جـاري الاذاعـه في المجموعـات ...الرجـاء الانتظـار**"
+    )
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -64,7 +63,8 @@ async def gcast(event):
     await roz.edit(
         f"**✾╎تمت الاذاعـه بنجـاح الـى ** `{done}` **من المجموعـات ، خطـأ في الارسـال الـى ** `{er}` **من المجموعـات**"
     )
-    
+
+
 @tipthon.ar_cmd(pattern=f"للخاص(?: |$)(.*)")
 async def gucast(event):
     zedthon = event.pattern_match.group(1)
@@ -73,9 +73,13 @@ async def gucast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await edit_or_reply(event, "**✾╎بالـرد ؏ــلى رسـالة او وسائـط او كتابـة رسـالة مع الامـࢪ**")
+        await edit_or_reply(
+            event, "**✾╎بالـرد ؏ــلى رسـالة او وسائـط او كتابـة رسـالة مع الامـࢪ**"
+        )
         return
-    roz = await edit_or_reply(event, "**✾╎ جـاري الاذاعـه في الخـاص ...الرجـاء الانتظـار**")
+    roz = await edit_or_reply(
+        event, "**✾╎ جـاري الاذاعـه في الخـاص ...الرجـاء الانتظـار**"
+    )
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -90,7 +94,7 @@ async def gucast(event):
     await roz.edit(
         f"**✾╎تمت الاذاعـه بنجـاح الـى ** `{done}` **من الخـاص ، خطـأ في الارسـال الـى ** `{er}` **من الخـاص**"
     )
-    
+
 
 @tipthon.ar_cmd(pattern="خاص ?(.*)")
 async def pmto(event):
@@ -108,7 +112,8 @@ async def pmto(event):
         return
     try:
         await tipthon.send_message(chat_id, msg)
-        await event.edit("**✾╎تـم ارسال الرسـالة الـى الشخـص بـدون الدخـول للخـاص .. بنجـاح ✓**")
+        await event.edit(
+            "**✾╎تـم ارسال الرسـالة الـى الشخـص بـدون الدخـول للخـاص .. بنجـاح ✓**"
+        )
     except BaseException:
         await event.edit("**✾╎اووبس .. لقـد حدث خطـأ مـا .. اعـد المحـاوله**")
-

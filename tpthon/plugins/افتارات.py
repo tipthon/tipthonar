@@ -1,23 +1,13 @@
-#𝙕𝙚𝙙𝙏𝙝𝙤𝙣 ®
-#الملـف حقـوق وكتابـة زلـزال الهيبـه ⤶ @zzzzl1l خاص بسـورس ⤶ 𝙕𝙚𝙙𝙏𝙝𝙤𝙣
+# 𝙕𝙚𝙙𝙏𝙝𝙤𝙣 ®
+# الملـف حقـوق وكتابـة زلـزال الهيبـه ⤶ @zzzzl1l خاص بسـورس ⤶ 𝙕𝙚𝙙𝙏𝙝𝙤𝙣
 
 
-import asyncio
-from collections import deque
-import os
-import random
-from urllib.parse import quote_plus
-from collections import deque
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from tpthon.core.logger import logging
-from tpthon import tipthon
-from ..Config import Config
-from ..core.managers import edit_delete, edit_or_reply
-from . import ALIVE_NAME, deEmojify, mention
-from ..helpers import get_user_from_event
-from ..helpers.utils import _format
 
+from tpthon import tipthon
+
+from ..core.managers import edit_or_reply
 from . import reply_id
 
 
@@ -47,7 +37,9 @@ async def _(event):
             response = await response
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await zzevent.edit("**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @amaterody_bot .. ثم اعـد استخدام الامـر ...🤖♥️**")
+            await zzevent.edit(
+                "**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @amaterody_bot .. ثم اعـد استخدام الامـر ...🤖♥️**"
+            )
             return
         if response.text.startswith("I can't find that"):
             await zzevent.edit("**╮•⎚ عـذراً .. لـم استطـع ايجـاد المطلـوب ☹️💔**")
@@ -69,7 +61,8 @@ async def _(event):
         reply_to_id = str(event.pattern_match.group(1))
     if not reply_to_id:
         return await edit_or_reply(
-            event, "**╮ . اكثـر مـن 1000 ستـوريات انمـي قصيـرة ممطـروقـه.. ارسـل .ستوري انمي 𓅫╰**"
+            event,
+            "**╮ . اكثـر مـن 1000 ستـوريات انمـي قصيـرة ممطـروقـه.. ارسـل .ستوري انمي 𓅫╰**",
         )
     chat = "@Chhhbbot"
     zzevent = await edit_or_reply(event, "**╮•⎚ جـارِ تحميـل السـتوري ...**")
@@ -82,14 +75,15 @@ async def _(event):
             response = await response
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await zzevent.edit("**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @Chhhbbot .. ثم اعـد استخدام الامـر ...🤖♥️**")
+            await zzevent.edit(
+                "**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @Chhhbbot .. ثم اعـد استخدام الامـر ...🤖♥️**"
+            )
             return
         if response.text.startswith("I can't find that"):
             await zzevent.edit("**╮•⎚ عـذراً .. لـم استطـع ايجـاد المطلـوب ☹️💔**")
         else:
             await zzevent.delete()
             await event.client.send_message(event.chat_id, response.message)
-
 
 
 @tipthon.ar_cmd(pattern="ولد ?(.*)")
@@ -105,7 +99,8 @@ async def _(event):
         reply_to_id = str(event.pattern_match.group(1))
     if not reply_to_id:
         return await edit_or_reply(
-            event, "**╮ . اكثـر مـن 1000 افتـارات انمـي شبـاب ممطـروقـه.. ارسـل .ولد انمي 𓅫╰**"
+            event,
+            "**╮ . اكثـر مـن 1000 افتـارات انمـي شبـاب ممطـروقـه.. ارسـل .ولد انمي 𓅫╰**",
         )
     chat = "@ZelTrbot"
     zzevent = await edit_or_reply(event, "**╮•⎚ جـارِ تحميـل الافتـار ...**")
@@ -118,7 +113,9 @@ async def _(event):
             response = await response
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await zzevent.edit("**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @ZelTrbot .. ثم اعـد استخدام الامـر ...🤖♥️**")
+            await zzevent.edit(
+                "**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @ZelTrbot .. ثم اعـد استخدام الامـر ...🤖♥️**"
+            )
             return
         if response.text.startswith("I can't find that"):
             await zzevent.edit("**╮•⎚ عـذراً .. لـم استطـع ايجـاد المطلـوب ☹️💔**")
@@ -140,7 +137,8 @@ async def _(event):
         reply_to_id = str(event.pattern_match.group(1))
     if not reply_to_id:
         return await edit_or_reply(
-            event, "**╮ . اكثـر مـن 1000 افتـارات انمـي بنـات ممطـروقـه.. ارسـل ..بنت انمي 𓅫╰**"
+            event,
+            "**╮ . اكثـر مـن 1000 افتـارات انمـي بنـات ممطـروقـه.. ارسـل ..بنت انمي 𓅫╰**",
         )
     chat = "@Maroooosh_bot"
     zzevent = await edit_or_reply(event, "**╮•⎚ جـارِ تحميـل الافتـار ...**")
@@ -153,14 +151,15 @@ async def _(event):
             response = await response
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await zzevent.edit("**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @Maroooosh_bot .. ثم اعـد استخدام الامـر ...🤖♥️**")
+            await zzevent.edit(
+                "**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @Maroooosh_bot .. ثم اعـد استخدام الامـر ...🤖♥️**"
+            )
             return
         if response.text.startswith("I can't find that"):
             await zzevent.edit("**╮•⎚ عـذراً .. لـم استطـع ايجـاد المطلـوب ☹️💔**")
         else:
             await zzevent.delete()
             await event.client.send_message(event.chat_id, response.message)
-
 
 
 @tipthon.ar_cmd(pattern="رزز ?(.*)")
@@ -176,7 +175,8 @@ async def _(event):
         reply_to_id = str(event.pattern_match.group(1))
     if not reply_to_id:
         return await edit_or_reply(
-            event, "**╮ قـم باضافـة رقمـٓہ من 130 - 1 للامـر . . مثـال ( .رر 1 ) ...𓅫╰**"
+            event,
+            "**╮ قـم باضافـة رقمـٓہ من 130 - 1 للامـر . . مثـال ( .رر 1 ) ...𓅫╰**",
         )
     chat = "@QQY_98BOT"
     zzevent = await edit_or_reply(event, "**╮•⎚ جـارِ تحميـل الافتـار ...**")
@@ -189,14 +189,15 @@ async def _(event):
             response = await response
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await zzevent.edit("**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @QQY_98BOT .. ثم اعـد استخدام الامـر ...🤖♥️**")
+            await zzevent.edit(
+                "**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @QQY_98BOT .. ثم اعـد استخدام الامـر ...🤖♥️**"
+            )
             return
         if response.text.startswith("I can't find that"):
             await zzevent.edit("**╮•⎚ عـذراً .. لـم استطـع ايجـاد المطلـوب ☹️💔**")
         else:
             await zzevent.delete()
             await event.client.send_message(event.chat_id, response.message)
-
 
 
 @tipthon.ar_cmd(pattern="رقيه ?(.*)")
@@ -225,15 +226,15 @@ async def _(event):
             response = await response
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await zzevent.edit("**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @ZlZZl77bot .. ثم اعـد استخدام الامـر ...🤖♥️**")
+            await zzevent.edit(
+                "**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @ZlZZl77bot .. ثم اعـد استخدام الامـر ...🤖♥️**"
+            )
             return
         if response.text.startswith("I can't find that"):
             await zzevent.edit("**╮•⎚ عـذراً .. لـم استطـع ايجـاد المطلـوب ☹️💔**")
         else:
             await zzevent.delete()
             await event.client.send_message(event.chat_id, response.message)
-
-
 
 
 @tipthon.ar_cmd(pattern="زز ?(.*)")
@@ -249,7 +250,8 @@ async def _(event):
         reply_to_id = str(event.pattern_match.group(1))
     if not reply_to_id:
         return await edit_or_reply(
-            event, "**╮ قـم باضافـة رقمـٓہ من 130 - 1 للامـر . . مثـال ( .زز 1 ) ...𓅫╰**"
+            event,
+            "**╮ قـم باضافـة رقمـٓہ من 130 - 1 للامـر . . مثـال ( .زز 1 ) ...𓅫╰**",
         )
     chat = "@SSSS_sssiBOT"
     zzevent = await edit_or_reply(event, "**╮•⎚ جـارِ تحميـل الافتـار ...**")
@@ -262,7 +264,9 @@ async def _(event):
             response = await response
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await zzevent.edit("**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @SSSS_sssiBOT .. ثم اعـد استخدام الامـر ...🤖♥️**")
+            await zzevent.edit(
+                "**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @SSSS_sssiBOT .. ثم اعـد استخدام الامـر ...🤖♥️**"
+            )
             return
         if response.text.startswith("I can't find that"):
             await zzevent.edit("**╮•⎚ عـذراً .. لـم استطـع ايجـاد المطلـوب ☹️💔**")
@@ -284,7 +288,8 @@ async def _(event):
         reply_to_id = str(event.pattern_match.group(1))
     if not reply_to_id:
         return await edit_or_reply(
-            event, "**╮ قـم باضافـة رقمـٓہ من 29 - 1 للامـر . . مثـال ( .بيست 1 ) ...𓅫╰**"
+            event,
+            "**╮ قـم باضافـة رقمـٓہ من 29 - 1 للامـر . . مثـال ( .بيست 1 ) ...𓅫╰**",
         )
     chat = "@Zedthonbot"
     zzevent = await edit_or_reply(event, "**╮•⎚ جـارِ التحميل ... 🧸🎈**")
@@ -297,14 +302,15 @@ async def _(event):
             response = await response
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await zzevent.edit("**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @Zedthonbot .. ثم اعـد استخدام الامـر ...🤖♥️**")
+            await zzevent.edit(
+                "**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @Zedthonbot .. ثم اعـد استخدام الامـر ...🤖♥️**"
+            )
             return
         if response.text.startswith("I can't find that"):
             await zzevent.edit("**╮•⎚ عـذراً .. لـم استطـع ايجـاد المطلـوب ☹️💔**")
         else:
             await zzevent.delete()
             await event.client.send_message(event.chat_id, response.message)
-
 
 
 @tipthon.ar_cmd(pattern="حب ?(.*)")
@@ -333,11 +339,12 @@ async def _(event):
             response = await response
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await zzevent.edit("**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @ZlZZl777BOT .. ثم اعـد استخدام الامـر ...🤖♥️**")
+            await zzevent.edit(
+                "**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @ZlZZl777BOT .. ثم اعـد استخدام الامـر ...🤖♥️**"
+            )
             return
         if response.text.startswith("I can't find that"):
             await zzevent.edit("**╮•⎚ عـذراً .. لـم استطـع ايجـاد المطلـوب ☹️💔**")
         else:
             await zzevent.delete()
             await event.client.send_message(event.chat_id, response.message)
-

@@ -1,6 +1,4 @@
-
 import asyncio
-import base64
 import os
 import shutil
 import time
@@ -14,7 +12,7 @@ from telethon.tl import functions
 from ..Config import Config
 from ..helpers.utils import _format
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
-from . import edit_delete, tipthon, logging
+from . import edit_delete, logging, tipthon
 
 plugin_category = "الادوات"
 DEFAULTUSERBIO = Config.DEFAULT_BIO or "الحمد الله على كل شئ - @E9N99"
@@ -35,7 +33,9 @@ digitalpfp = Config.DIGITAL_PIC
 ZED_FONT = gvarstatus("DEFAULT_PIC") or "tpthon/helpers/styles/ZThon.ttf"
 zedfont = gvarstatus("DEFAULT_PIC") or "tpthon/helpers/styles/ZThon.ttf"
 NAUTO = gvarstatus("Z_NAUTO") or "(الاسم تلقائي|اسم وقتي|اسم تلقائي)"
-PAUTO = gvarstatus("Z_PAUTO") or "(البروفايل تلقائي|الصورة الوقتية|صوره وقتيه|البروفايل)"
+PAUTO = (
+    gvarstatus("Z_PAUTO") or "(البروفايل تلقائي|الصورة الوقتية|صوره وقتيه|البروفايل)"
+)
 BAUTO = gvarstatus("Z_BAUTO") or "(البايو تلقائي|بايو وقتي|نبذه وقتيه)"
 
 
@@ -75,12 +75,12 @@ async def digitalpicloop():
 
 async def autoname_loop():
     while AUTONAMESTART := gvarstatus("autoname") == "true":
-        DM = time.strftime("%d-%m-%y")
+        time.strftime("%d-%m-%y")
         HM = time.strftime("%I:%M")
         for normal in HM:
             if normal in normzltext:
-              namefont = namerzfont[normzltext.index(normal)]
-              HM = HM.replace(normal, namefont)
+                namefont = namerzfont[normzltext.index(normal)]
+                HM = HM.replace(normal, namefont)
         name = f"{ZEDT}{HM}™"
         LOGS.info(name)
         try:
@@ -95,12 +95,12 @@ async def autoname_loop():
 async def autobio_loop():
     AUTOBIOSTART = gvarstatus("autobio") == "true"
     while AUTOBIOSTART:
-        DMY = time.strftime("%d.%m.%Y")
+        time.strftime("%d.%m.%Y")
         HM = time.strftime("%I:%M:%S")
         for normal in HM:
             if normal in normzltext:
-              namefont = namerzfont[normzltext.index(normal)]
-              HM = HM.replace(normal, namefont)
+                namefont = namerzfont[normzltext.index(normal)]
+                HM = HM.replace(normal, namefont)
         bio = f"░ {DEFAULTUSERBIO} 𓃬 | {HM}"
         LOGS.info(bio)
         try:
@@ -161,7 +161,11 @@ async def _(event):
 async def _(event):  # sourcery no-metrics
     "To stop the functions of autoprofile plugin"
     input_str = event.pattern_match.group(1)
-    if input_str == "البروفايل تلقائي" or input_str == "البروفايل" or input_str == "البروفايل التلقائي":
+    if (
+        input_str == "البروفايل تلقائي"
+        or input_str == "البروفايل"
+        or input_str == "البروفايل التلقائي"
+    ):
         if gvarstatus("digitalpic") is not None and gvarstatus("digitalpic") == "true":
             delgvar("digitalpic")
             await event.client(
@@ -171,7 +175,11 @@ async def _(event):  # sourcery no-metrics
             )
             return await edit_delete(event, "** تم انهاء  البروفايل التلقائي الان 𓆰**")
         return await edit_delete(event, "** لم يتم تمكين  البروفايل التلقائي 𓆰**")
-    if input_str == "الاسم تلقائي" or input_str == "الاسم" or input_str == "الاسم التلقائي":
+    if (
+        input_str == "الاسم تلقائي"
+        or input_str == "الاسم"
+        or input_str == "الاسم التلقائي"
+    ):
         if gvarstatus("autoname") is not None and gvarstatus("autoname") == "true":
             delgvar("autoname")
             await event.client(
@@ -179,7 +187,11 @@ async def _(event):  # sourcery no-metrics
             )
             return await edit_delete(event, "**تم إيقاف لاسم التلقائي الآن 𓆰**")
         return await edit_delete(event, "**لم يتم تمكين الاسم التلقائي 𓆰**")
-    if input_str == "البايو تلقائي" or input_str == "البايو" or input_str == "البايو التلقائي":
+    if (
+        input_str == "البايو تلقائي"
+        or input_str == "البايو"
+        or input_str == "البايو التلقائي"
+    ):
         if gvarstatus("autobio") is not None and gvarstatus("autobio") == "true":
             delgvar("autobio")
             await event.client(

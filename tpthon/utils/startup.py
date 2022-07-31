@@ -1,4 +1,3 @@
-
 import asyncio
 import glob
 import os
@@ -143,16 +142,21 @@ async def mybot():
             await asyncio.sleep(1)
             await bot.send_message("@BotFather", botname)
             await asyncio.sleep(1)
-            await bot.send_message("@BotFather", f"- بـوت تيبثـــون المسـاعـد ♥️🦾 الخـاص بـ  {bot.me.first_name} ")
+            await bot.send_message(
+                "@BotFather",
+                f"- بـوت تيبثـــون المسـاعـد ♥️🦾 الخـاص بـ  {bot.me.first_name} ",
+            )
             await asyncio.sleep(3)
             await bot.send_message("@BotFather", "/setdescription")
             await asyncio.sleep(1)
             await bot.send_message("@BotFather", botname)
             await asyncio.sleep(1)
-            await bot.send_message("@BotFather", f"•⎆┊انـا البــوت المسـاعـد الخــاص بـ {zel_zal} \n•⎆┊بـواسطـتـي يمكـنك التواصــل مـع مـالكـي 🧸♥️\n•⎆┊قنـاة السـورس 🌐 @E9N99 🌐")
+            await bot.send_message(
+                "@BotFather",
+                f"•⎆┊انـا البــوت المسـاعـد الخــاص بـ {zel_zal} \n•⎆┊بـواسطـتـي يمكـنك التواصــل مـع مـالكـي 🧸♥️\n•⎆┊قنـاة السـورس 🌐 @E9N99 🌐",
+            )
         except Exception as e:
             print(e)
-
 
 
 async def add_bot_to_logger_group(chat_id):
@@ -257,8 +261,6 @@ async def saves():
         pass
 
 
-
-
 async def verifyLoggerGroup():
     """
     Will verify the both loggers group
@@ -286,8 +288,7 @@ async def verifyLoggerGroup():
             )
         except Exception as e:
             LOGS.error(
-                "حدث خطأ عند محاولة التحقق من فار PRIVATE_GROUP_BOT_API_ID.\n"
-                + str(e)
+                "حدث خطأ عند محاولة التحقق من فار PRIVATE_GROUP_BOT_API_ID.\n" + str(e)
             )
     else:
         descript = "لا تقم بحذف هذه المجموعة أو التغيير إلى مجموعة عامه (وظيفتهـا تخزيـن كـل سجـلات وعمليـات البـوت.)"
@@ -313,7 +314,9 @@ async def verifyLoggerGroup():
                         "لا تمتلك صلاحيات اضافه اعضاء في مجموعة فار الـ  PM_LOGGER_GROUP_ID."
                     )
         except ValueError:
-            LOGS.error("PM_LOGGER_GROUP_ID لم يتم العثور على قيمه هذا الفار . تاكد من أنه صحيح .")
+            LOGS.error(
+                "PM_LOGGER_GROUP_ID لم يتم العثور على قيمه هذا الفار . تاكد من أنه صحيح ."
+            )
         except TypeError:
             LOGS.error("PM_LOGGER_GROUP_ID قيمه هذا الفار خطا. تاكد من أنه صحيح.")
         except Exception as e:

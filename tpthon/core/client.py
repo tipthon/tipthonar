@@ -122,7 +122,9 @@ class ZedUserBotClient(TelegramClient):
                 except MessageIdInvalidError:
                     LOGS.error("الرسالة تم حذفها او لم يتم العثور عليها")
                 except BotInlineDisabledError:
-                    await edit_delete(check, "**⌔∮ يجب عليك تفعيل وضع الانلاين اولاً**", 10)
+                    await edit_delete(
+                        check, "**⌔∮ يجب عليك تفعيل وضع الانلاين اولاً**", 10
+                    )
                 except ChatSendStickersForbiddenError:
                     await edit_delete(
                         check, "**- هـذه المجمـوعـه لا تسمح بارسـال الملصقـات هنا**", 10
@@ -132,7 +134,9 @@ class ZedUserBotClient(TelegramClient):
                         check, "⪼ استخدم الميزه بعد وقت قليل لا يمكن الاستجابه الان", 10
                     )
                 except ChatSendMediaForbiddenError:
-                    await edit_delete(check, "**⪼ هذه المجموعه تمنع ارسال الميديا هنا 𓆰،**", 10)
+                    await edit_delete(
+                        check, "**⪼ هذه المجموعه تمنع ارسال الميديا هنا 𓆰،**", 10
+                    )
                 except AlreadyInConversationError:
                     await edit_delete(
                         check,
@@ -141,7 +145,9 @@ class ZedUserBotClient(TelegramClient):
                     )
                 except ChatSendInlineForbiddenError:
                     await edit_delete(
-                        check, "**- عـذراً .. الانـلايـن فـي هـذه المجمـوعـة مغـلق**", 10
+                        check,
+                        "**- عـذراً .. الانـلايـن فـي هـذه المجمـوعـة مغـلق**",
+                        10,
                     )
                 except FloodWaitError as e:
                     LOGS.error(
@@ -170,7 +176,9 @@ class ZedUserBotClient(TelegramClient):
                             "error": str(sys.exc_info()[1]),
                             "date": datetime.datetime.now(),
                         }
-                        ftext += "\n\n--------نهـاية سجـل تتبـع تيبثــون 𝗧𝗶𝗽𝘁𝗵𝗼𝗻--------"
+                        ftext += (
+                            "\n\n--------نهـاية سجـل تتبـع تيبثــون 𝗧𝗶𝗽𝘁𝗵𝗼𝗻--------"
+                        )
                         ftext += "\n\n\n- آخـر 5 ملفـات تم تحديثهـا :\n"
                         command = 'git log --pretty=format:"%an: %s" -5'
                         output = (await runcmd(command))[:2]
@@ -185,9 +193,7 @@ class ZedUserBotClient(TelegramClient):
                             + "- يمكنك الإبـلاغ عن هـذا الخطـأ .. "
                         )
                         text += f"- فقط قم بإعـادة توجيـه هـذه الرسـالة إلى مطـور السـورس {link}.\n\n"
-                        text += (
-                            "- لـ اعـلام المطـور بالخطـأ .. حتـى يتـم اصـلاحـه\n\n"
-                        )
+                        text += "- لـ اعـلام المطـور بالخطـأ .. حتـى يتـم اصـلاحـه\n\n"
                         text += f"**- رسـالة الخطـأ :** [{new['error']}]({pastelink})"
                         await check.client.send_message(
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
@@ -291,7 +297,9 @@ class ZedUserBotClient(TelegramClient):
                             "error": str(sys.exc_info()[1]),
                             "date": datetime.datetime.now(),
                         }
-                        ftext += "\n\n--------نهـاية سجـل تتبـع تيبثــون 𝗧𝗶𝗽𝘁𝗵𝗼𝗻--------"
+                        ftext += (
+                            "\n\n--------نهـاية سجـل تتبـع تيبثــون 𝗧𝗶𝗽𝘁𝗵𝗼𝗻--------"
+                        )
                         command = 'git log --pretty=format:"%an: %s" -5'
                         ftext += "\n\n\n- آخـر 5 ملفـات تم تحديثهـا :\n"
                         output = (await runcmd(command))[:2]
@@ -304,9 +312,7 @@ class ZedUserBotClient(TelegramClient):
                         link = "[المطــور](https://t.me/M_H_N)"
                         text += "- يمكنك الإبـلاغ عن هـذا الخطـأ .. "
                         text += f"- فقط قم بإعـادة توجيـه هـذه الرسـالة إلى مطـور السـورس {link}.\n"
-                        text += (
-                            "- لـ اعـلام المطـور بالخطـأ .. حتـى يتـم اصـلاحـه\n\n"
-                        )
+                        text += "- لـ اعـلام المطـور بالخطـأ .. حتـى يتـم اصـلاحـه\n\n"
                         text += f"**- رسـالة الخطـأ :** [{new['error']}]({pastelink})"
                         await check.client.send_message(
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False

@@ -17,9 +17,7 @@ async def on_plug_in_callback_query_handler(event):
             userid = message["userid"]
             ids = [userid]
             if event.query.user_id in ids:
-                reply_pop_up_alert = (
-                    "دعبـل مطـي الرسـاله مـو الك 🧑🏻‍🦯🦓"
-                )
+                reply_pop_up_alert = "دعبـل مطـي الرسـاله مـو الك 🧑🏻‍🦯🦓"
             else:
                 encrypted_tcxt = message["text"]
                 reply_pop_up_alert = encrypted_tcxt

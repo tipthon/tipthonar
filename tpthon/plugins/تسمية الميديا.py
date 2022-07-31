@@ -1,5 +1,3 @@
-
-
 import asyncio
 import os
 import time
@@ -8,7 +6,7 @@ from datetime import datetime
 from tpthon import tipthon
 
 from ..Config import Config
-from ..core.managers import edit_delete, edit_or_reply
+from ..core.managers import edit_or_reply
 from ..helpers.utils import reply_id
 from . import progress, reply_id
 
@@ -188,4 +186,3 @@ async def _(event):
         await catevent.edit(
             "**Syntax : **`.rnupload file.name` as reply to a Telegram media"
         )
-

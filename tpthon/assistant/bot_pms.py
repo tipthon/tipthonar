@@ -307,7 +307,9 @@ async def handler(event):
 async def bot_start(event):
     reply_to = await reply_id(event)
     if not reply_to:
-        return await event.reply("**- بالـرد على رسـالة الشخـص للحصول على المعلومات . . .**")
+        return await event.reply(
+            "**- بالـرد على رسـالة الشخـص للحصول على المعلومات . . .**"
+        )
     info_msg = await event.client.send_message(
         event.chat_id,
         "**🔎 جـارِ البحث عن هـذا المستخـدم في قاعدة البيـانات الخاصـة بك ...**",
@@ -415,7 +417,9 @@ async def send_flood_alert(user_) -> None:
             )
         except UserIsBlockedError:
             if BOTLOG:
-                await tipthon.tgbot.send_message(BOTLOG_CHATID, "**Unblock your bot !**")
+                await tipthon.tgbot.send_message(
+                    BOTLOG_CHATID, "**Unblock your bot !**"
+                )
     if FloodConfig.ALERT[user_.id].get("fa_id") is None and fa_msg:
         FloodConfig.ALERT[user_.id]["fa_id"] = fa_msg.id
 

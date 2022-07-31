@@ -1,13 +1,15 @@
 import sys
+
 import tpthon
 from tpthon import BOTLOG_CHATID, PM_LOGGER_GROUP_ID
+
 from .Config import Config
 from .core.logger import logging
 from .core.session import tipthon
-from .utils import mybot
 from .utils import (
     add_bot_to_logger_group,
     load_plugins,
+    mybot,
     saves,
     setup_bot,
     startupmessage,
@@ -45,7 +47,6 @@ except Exception as e:
     LOGS.error(f"- {e}")
 
 
-
 async def startup_process():
     await verifyLoggerGroup()
     await load_plugins("plugins")
@@ -62,7 +63,6 @@ async def startup_process():
         await add_bot_to_logger_group(PM_LOGGER_GROUP_ID)
     await startupmessage()
     return
-
 
 
 tipthon.loop.run_until_complete(startup_process())

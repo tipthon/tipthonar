@@ -95,7 +95,8 @@ async def noods(event):  # sourcery no-metrics
         else:
             i += 1
         await edit_or_reply(
-            zedevent, f"**- تم تحميـل 📥 :** {count}/{limit}\n\n**- خطـأ بتحميـل ❌ :** {i}/5"
+            zedevent,
+            f"**- تم تحميـل 📥 :** {count}/{limit}\n\n**- خطـأ بتحميـل ❌ :** {i}/5",
         )
         if count == int(limit):
             break

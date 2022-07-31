@@ -70,7 +70,9 @@ async def chat_blacklist(event):
     sudousers = _sudousers_list()
     if input_str == "تفعيل":
         if gvarstatus("sudoenable") is not None:
-            return await edit_delete(event, "**- وضـع المطــور فـي وضـع التفعيـل مسبقــاً ✓**")
+            return await edit_delete(
+                event, "**- وضـع المطــور فـي وضـع التفعيـل مسبقــاً ✓**"
+            )
         addgvar("sudoenable", "true")
         text = "**✾╎تـم تفعـيل وضـع المطــور المسـاعـد .. بنجــاح✓**\n\n"
         if len(sudousers) != 0:
@@ -195,7 +197,8 @@ async def _(event):
         sudousers = {}
     if len(sudochats) == 0:
         return await edit_delete(
-            event, "**•❐• لا يـوجـد هنـاك مطـورين في قائمــة مـطـورين البــوت الخـاص بـك الى الان**"
+            event,
+            "**•❐• لا يـوجـد هنـاك مطـورين في قائمــة مـطـورين البــوت الخـاص بـك الى الان**",
         )
     result = "**•❐• قائمــة مـطـورين البــوت الخـاص بـك مـن 𝗧𝗶𝗽𝘁𝗵𝗼𝗻 𝗮𝗟 𝗔𝗿𝗮𝗯 :**\n\n"
     for chat in sudochats:
@@ -272,9 +275,7 @@ async def _(event):  # sourcery no-metrics
         loadcmds = []
         for plugin in input_str:
             if plugin not in PLG_INFO:
-                errors += (
-                    f"`{plugin}` __There is no such plugin in your ZThon__.\n"
-                )
+                errors += f"`{plugin}` __There is no such plugin in your ZThon__.\n"
             else:
                 loadcmds += PLG_INFO[plugin]
     else:
@@ -363,9 +364,7 @@ async def _(event):  # sourcery no-metrics
         flagcmds = []
         for plugin in input_str:
             if plugin not in PLG_INFO:
-                errors += (
-                    f"`{plugin}` __There is no such plugin in your ZThon__.\n"
-                )
+                errors += f"`{plugin}` __There is no such plugin in your ZThon__.\n"
             else:
                 flagcmds += PLG_INFO[plugin]
     else:
@@ -462,9 +461,6 @@ async def _(event):  # sourcery no-metrics
 tipthon.loop.create_task(_init())
 
 
-
 @tipthon.ar_cmd(pattern="المساعد")
 async def cmd(zelzallll):
     await edit_or_reply(zelzallll, TipthonDV_cmd)
-
-

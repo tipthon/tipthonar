@@ -56,14 +56,14 @@ async def _(event):
     elif reply and reply.message:
         query = reply.message
     else:
-        return await edit_or_reply(event, "**❈╎قم باضافـة الاغنيـه للامـر .. بحث + اسـم الاغنيـه**")
+        return await edit_or_reply(
+            event, "**❈╎قم باضافـة الاغنيـه للامـر .. بحث + اسـم الاغنيـه**"
+        )
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     zedevent = await edit_or_reply(event, "**╮ جـارِ البحث ؏ـن الاغنيـٓه... 🎧♥️╰**")
     video_link = await yt_search(str(query))
     if not url(video_link):
-        return await zedevent.edit(
-            f"**❈╎عـذراً .. لـم استطـع ايجـاد** {query}"
-        )
+        return await zedevent.edit(f"**❈╎عـذراً .. لـم استطـع ايجـاد** {query}")
     cmd = event.pattern_match.group(1)
     q = "320k" if cmd == "320" else "128k"
     song_cmd = song_dl.format(QUALITY=q, video_link=video_link)
@@ -85,9 +85,7 @@ async def _(event):
     except:
         pass
     if not os.path.exists(song_file):
-        return await zedevent.edit(
-            f"**❈╎عـذراً .. لـم استطـع ايجـاد** {query}"
-        )
+        return await zedevent.edit(f"**❈╎عـذراً .. لـم استطـع ايجـاد** {query}")
     await zedevent.edit("**╮ ❐ جـارِ تحميـل الاغنيـٓه انتظـر قليلاً  ▬▭... 𓅫╰**")
     catthumb = Path(f"{catname}.jpg")
     if not os.path.exists(catthumb):
@@ -128,7 +126,9 @@ async def _(event):
     elif reply and reply.message:
         query = reply.message
     else:
-        return await edit_or_reply(event, "**❈╎قم باضافـة الاغنيـه للامـر .. فيديو + اسـم الفيديـو**")
+        return await edit_or_reply(
+            event, "**❈╎قم باضافـة الاغنيـه للامـر .. فيديو + اسـم الفيديـو**"
+        )
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     zedevent = await edit_or_reply(event, "**╮ جـارِ البحث ؏ـن الفيديـو... 🎧♥️╰**")
     video_link = await yt_search(str(query))

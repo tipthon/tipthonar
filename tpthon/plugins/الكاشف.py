@@ -1,17 +1,10 @@
-
-
-
-import asyncio
-import os
-
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from tpthon import tipthon
 
-from ..core.managers import edit_delete, edit_or_reply
+from ..core.managers import edit_or_reply
 from ..helpers.utils import reply_id
-from . import BOTLOG, BOTLOG_CHATID
 
 plugin_category = "البحث"
 
@@ -51,7 +44,8 @@ async def _(event):
         reply_to_id = str(event.pattern_match.group(1))
     if not reply_to_id:
         return await edit_or_reply(
-            event, "**╮ . كـاشف الاࢪقـام الـ؏ـࢪبيـة 📲.. اࢪسـل** `.الكاشف` **للتعليـمات 𓅫╰**"
+            event,
+            "**╮ . كـاشف الاࢪقـام الـ؏ـࢪبيـة 📲.. اࢪسـل** `.الكاشف` **للتعليـمات 𓅫╰**",
         )
     chat = "@Zelzalybot"
     zzzzl1l = await edit_or_reply(event, "**╮•⎚ جـارِ الكـشف ؏ــن الـرقـم  📲 ⌭ . . .**")
@@ -64,7 +58,9 @@ async def _(event):
             response = await response
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await zzzzl1l.edit("**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @Zelzalybot .. ثم اعـد استخدام الامـر ...🤖♥️**")
+            await zzzzl1l.edit(
+                "**╮•⎚ تحـقق من انـك لم تقـم بحظر البوت @Zelzalybot .. ثم اعـد استخدام الامـر ...🤖♥️**"
+            )
             return
         if response.text.startswith("I can't find that"):
             await zzzzl1l.edit("**╮•⎚ عـذراً .. لـم استطـع ايجـاد المطلـوب ☹️💔**")
@@ -73,9 +69,6 @@ async def _(event):
             await event.client.send_message(event.chat_id, response.message)
 
 
-
-
 @tipthon.ar_cmd(pattern="الكاشف")
 async def cmd(zelzallll):
     await edit_or_reply(zelzallll, TipthonPH_cmd)
-

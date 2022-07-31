@@ -1,18 +1,14 @@
 # animation5 for tpthon edit by ~ @zlzzl77
 
 import asyncio
-import os
-import random
-from urllib.parse import quote_plus
-from collections import deque
-from tpthon.core.logger import logging
+
 from tpthon import tipthon
-from ..Config import Config
-from ..core.managers import edit_delete, edit_or_reply
+
+from ..core.managers import edit_or_reply
 
 plugin_category = "الترفيه"
 
-from . import ALIVE_NAME, deEmojify
+from . import ALIVE_NAME
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "zed"
 
@@ -242,22 +238,20 @@ async def _(event):
 
 
 Fun5_cmd = (
-        
-"**- قائمـة اوامر التسليه5 هـي :**"
-"  •  `.تتحميل`"
-"  •  `.مربع`"
-"  •  `.up`"
-"  •  `.دائره`"
-"  •  `.قلب`"
-"  •  `.انيم`"
-"  •  `.بشره`"
-"  •  `.قرد`"
-"  •  `.هاربر`"
-"  •  `.يد`"
-"  •  `.العد التنازلي`"
-"  •  `.قلوب`"
-  
-"**للنســخ : ** __اضغط ع الامـر لنسخـه__"
+    "**- قائمـة اوامر التسليه5 هـي :**"
+    "  •  `.تتحميل`"
+    "  •  `.مربع`"
+    "  •  `.up`"
+    "  •  `.دائره`"
+    "  •  `.قلب`"
+    "  •  `.انيم`"
+    "  •  `.بشره`"
+    "  •  `.قرد`"
+    "  •  `.هاربر`"
+    "  •  `.يد`"
+    "  •  `.العد التنازلي`"
+    "  •  `.قلوب`"
+    "**للنســخ : ** __اضغط ع الامـر لنسخـه__"
 )
 
 # Copyright (C) 2022 Zedthon . All Rights Reserved

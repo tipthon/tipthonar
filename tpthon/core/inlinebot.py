@@ -61,9 +61,7 @@ def main_menu():
         buttons = [
             (Button.inline("ℹ️ Info", data="check"),),
             (
-                Button.inline(
-                    f"اوامـر الادمـن 🧑🏻‍💻", data="admin_menu"
-                ),
+                Button.inline(f"اوامـر الادمـن 🧑🏻‍💻", data="admin_menu"),
                 Button.inline(f"اوامـر البـوت 🦾", data="bot_menu"),
             ),
             (
@@ -76,9 +74,7 @@ def main_menu():
             ),
             (
                 Button.inline(f"البـحـث والتحميـل 🪄", data="extra_menu"),
-                Button.inline(
-                    f"آخرى 🖨", data="useless_menu"
-                ),
+                Button.inline(f"آخرى 🖨", data="useless_menu"),
             ),
             (Button.inline("🔒 اغـلاق اللوحـه", data="close"),),
         ]
@@ -86,9 +82,7 @@ def main_menu():
         buttons = [
             (Button.inline("ℹ️ Info", data="check"),),
             (
-                Button.inline(
-                    f"اوامـر الادمـن 🧑🏻‍💻", data="admin_menu"
-                ),
+                Button.inline(f"اوامـر الادمـن 🧑🏻‍💻", data="admin_menu"),
                 Button.inline(f"اوامـر البـوت 🦾", data="bot_menu"),
             ),
             (
@@ -259,8 +253,14 @@ async def inline_handler(event):  # sourcery no-metrics
                     Button.url("𝗧𝗶𝗽𝘁𝗵𝗼𝗻 𝗮𝗟 𝗔𝗿𝗮𝗯", "https://t.me/E9N99"),
                 )
             ]
-            ALIVE_PIC = gvarstatus("ALIVE_PIC") or "https://telegra.ph/file/9c3a1617ffe565549f8c1.jpg"
-            IALIVE_PIC = gvarstatus("IALIVE_PIC") or "https://telegra.ph/file/9c3a1617ffe565549f8c1.jpg"
+            ALIVE_PIC = (
+                gvarstatus("ALIVE_PIC")
+                or "https://telegra.ph/file/9c3a1617ffe565549f8c1.jpg"
+            )
+            IALIVE_PIC = (
+                gvarstatus("IALIVE_PIC")
+                or "https://telegra.ph/file/9c3a1617ffe565549f8c1.jpg"
+            )
             if IALIVE_PIC:
                 ZED = [x for x in IALIVE_PIC.split()]
                 PIC = list(ZED)

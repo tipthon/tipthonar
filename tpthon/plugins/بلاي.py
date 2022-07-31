@@ -1,13 +1,11 @@
 from tpthon import tipthon
-from tpthon.core.logger import logging
 
-from ..Config import Config
-from ..core.managers import edit_delete, edit_or_reply
+from ..core.managers import edit_or_reply
 
 plugin_category = "الترفيه"
 
 
-# بلاي 
+# بلاي
 M = (
     "**𓆰**  𝗧𝗶𝗽𝘁𝗵𝗼𝗻 𝗮𝗟 𝗔𝗿𝗮𝗯   **العـاب الاونلايـن** 🎮𓆪 \n"
     "◐━─━─━─━─𝗧𝗶𝗽─━─━─━─━◐\n\n"

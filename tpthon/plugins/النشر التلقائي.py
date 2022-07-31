@@ -1,13 +1,11 @@
 from telethon import *
 
 from tpthon import tipthon
-
-from ..Config import Config
-from ..core.managers import edit_delete, edit_or_reply
-from ..sql_helper.autopost_sql import add_post, get_all_post, is_post, remove_post
 from tpthon.core.logger import logging
+
+from ..core.managers import edit_or_reply
+from ..sql_helper.autopost_sql import add_post, get_all_post, is_post, remove_post
 from ..sql_helper.globals import gvarstatus
-from . import BOTLOG, BOTLOG_CHATID
 from . import *
 
 plugin_category = "الادوات"
@@ -57,34 +55,46 @@ async def get_user_from_event(event):
 
 @tipthon.ar_cmd(pattern=f"{SPRD} ?(.*)")
 async def _(event):
-    if (event.is_private or event.is_group):
-        return await edit_or_reply(event, "**✾╎عـذراً .. النشر التلقائي خـاص بالقنـوات فقـط**")
+    if event.is_private or event.is_group:
+        return await edit_or_reply(
+            event, "**✾╎عـذراً .. النشر التلقائي خـاص بالقنـوات فقـط**"
+        )
     trz_ = event.pattern_match.group(1)
     if str(trz_).startswith("-100"):
         zed = str(trz_).replace("-100", "")
     else:
         zed = trz_
     if not zed.isdigit():
-        return await edit_or_reply(event, "**✾╎عـذراً .. قـم بوضـع ايـدي القنـاة اولاً**")
-    if is_post(zed , event.chat_id):
-        return await edit_or_reply(event, "**✾╎تم تفعيـل النشر التلقـائي لهـذه القنـاة هنـا .. بنجـاح ✓**")
+        return await edit_or_reply(
+            event, "**✾╎عـذراً .. قـم بوضـع ايـدي القنـاة اولاً**"
+        )
+    if is_post(zed, event.chat_id):
+        return await edit_or_reply(
+            event, "**✾╎تم تفعيـل النشر التلقـائي لهـذه القنـاة هنـا .. بنجـاح ✓**"
+        )
     add_post(zed, event.chat_id)
     await edit_or_reply(event, f"**✾╎جـاري بدء النشـر التلقـائي من القنـاة ** `{trz_}`")
 
 
 @tipthon.ar_cmd(pattern=f"{OFSPRD} ?(.*)")
 async def _(event):
-    if (event.is_private or event.is_group):
-        return await edit_or_reply(event, "**✾╎عـذراً .. النشر التلقائي خـاص بالقنـوات فقـط**")
+    if event.is_private or event.is_group:
+        return await edit_or_reply(
+            event, "**✾╎عـذراً .. النشر التلقائي خـاص بالقنـوات فقـط**"
+        )
     trz_ = event.pattern_match.group(1)
     if str(trz_).startswith("-100"):
         zed = str(trz_).replace("-100", "")
     else:
         zed = trz_
     if not zed.isdigit():
-        return await edit_or_reply(event, "**✾╎عـذراً .. قـم بوضـع ايـدي القنـاة اولاً**")
+        return await edit_or_reply(
+            event, "**✾╎عـذراً .. قـم بوضـع ايـدي القنـاة اولاً**"
+        )
     if not is_post(zed, event.chat_id):
-        return await edit_or_reply(event, "**✾╎تم تعطيـل النشر التلقـائي لهـذه القنـاة هنـا .. بنجـاح ✓**")
+        return await edit_or_reply(
+            event, "**✾╎تم تعطيـل النشر التلقـائي لهـذه القنـاة هنـا .. بنجـاح ✓**"
+        )
     remove_post(zed, event.chat_id)
     await edit_or_reply(event, f"**✾╎تم ايقـاف النشـر التلقـائي من** `{trz_}`")
 
@@ -94,7 +104,7 @@ async def _(event):
     if event.is_private:
         return
     chat_id = str(event.chat_id).replace("-100", "")
-    channels_set  = get_all_post(chat_id)
+    channels_set = get_all_post(chat_id)
     if channels_set == []:
         return
     for chat in channels_set:
@@ -104,8 +114,6 @@ async def _(event):
             await tipthon.send_message(int(chat), event.message)
 
 
-
 @tipthon.ar_cmd(pattern="النشر")
 async def cmd(zelzallll):
     await edit_or_reply(zelzallll, TipthonNSH_cmd)
-

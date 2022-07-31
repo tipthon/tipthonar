@@ -1,16 +1,9 @@
-
-
-import asyncio
-import os
-
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from tpthon import tipthon
 
-from ..core.managers import edit_delete, edit_or_reply
-from ..helpers.utils import reply_id
-from . import BOTLOG, BOTLOG_CHATID
+from ..core.managers import edit_or_reply
 
 plugin_category = "البحث"
 
@@ -34,7 +27,9 @@ async def _(event):
         await edit_or_reply(event, "**```بالـرد على الرابـط حمبـي 🧸🎈```**")
         return
     chat = "@ZZ191BOT"
-    zzzzl1l = await edit_or_reply(event, "**╮ ❐ جـارِ التحميـل من تيـك تـوك انتظـر قليلاً  ▬▭... 𓅫╰**")
+    zzzzl1l = await edit_or_reply(
+        event, "**╮ ❐ جـارِ التحميـل من تيـك تـوك انتظـر قليلاً  ▬▭... 𓅫╰**"
+    )
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(

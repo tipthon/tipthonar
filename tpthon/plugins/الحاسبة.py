@@ -2,7 +2,7 @@ import io
 import sys
 import traceback
 
-from . import tipthon, edit_or_reply
+from . import edit_or_reply, tipthon
 
 plugin_category = "الادوات"
 
