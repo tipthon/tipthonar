@@ -32,11 +32,7 @@ def close_connection(*_):
 
 signal.signal(signal.SIGTERM, close_connection)
 
-
-if Config.UPSTREAM_REPO == "tip":
-    UPSTREAM_REPO_URL = "https://github.com/tipthon/tipthonar"
-else:
-    UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
+UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
 
 if Config.PRIVATE_GROUP_BOT_API_ID == 0:
     if gvarstatus("PRIVATE_GROUP_BOT_API_ID") is None:
